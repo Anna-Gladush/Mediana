@@ -1,25 +1,13 @@
-import statistics
-import time
-
-nums1 = []
-nums2 = []
 def medians(nums1, nums2):
-    n = int(input('Вставьте значение n, равное размеру списка nums1 '))
-    for i in range(n):
-        nums1.append(int(input("Вставьте значения списка №1, пожалуйста ")))
-    m = int(input('Вставьте значение m, равное размеру списка nums2 '))
-    for _ in range(m):
-        nums2.append(int(input("Теперь, Вставьте значения списка №2 ")))
-
     list_of_numbers = nums1 + nums2
     list_of_numbers.sort()
-
-    #print((list_of_numbers))
-    x = (float(statistics.median(list_of_numbers)))
-    #print(x)
-    print('% .5f' % x)
-
-medians(nums1, nums2)
-
-start_time = time.time()
-#print("--- %s seconds ---" % (time.time() - start_time))
+    n = len(list_of_numbers)
+    if n % 2 == 0:
+        median1 = list_of_numbers[n // 2]
+        median2 = list_of_numbers[n // 2 - 1]
+        true_median = (median1 + median2) / 2
+        true_median = float(true_median)
+    else:
+        true_median = list_of_numbers[n // 2]
+        true_median = float(true_median)
+    print('% .5f' % true_median)
